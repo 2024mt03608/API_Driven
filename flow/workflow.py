@@ -77,7 +77,7 @@ def full_training_task(path):
 @flow(name="heart-disease-advanced-flow", log_prints=True)
 def ml_workflow():
 
-    path = "../data/heart_2020_cleaned.csv"
+    path = "../data/heart_2020_sample_10k.csv"
 
     # ---------------- LOAD ORIGINAL ----------------
     df = load_data(path)
