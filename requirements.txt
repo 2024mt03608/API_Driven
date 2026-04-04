@@ -6,3 +6,5 @@ scipy
 scikit-learn
 prefect
 xgboost
+python-dotenv
+requests

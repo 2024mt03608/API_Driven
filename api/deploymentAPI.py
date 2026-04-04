@@ -2,13 +2,22 @@
 
 # URL - https://app.prefect.cloud/api/docs
 
+import os
 import requests
+from dotenv import load_dotenv
 
-# Replace these variables with your actual Prefect Cloud credentials
-PREFECT_API_KEY = "pnu_9ExUd6v7xvk7bG8AZ64dcfLx8qy7b40okpbv"  # Your Prefect Cloud API key
-ACCOUNT_ID = "8ff8f613-92c4-44ce-b811-f9956023e78d"  # Your Prefect Cloud Account ID
-WORKSPACE_ID = "04d8fca9-df2e-40c8-ae4f-a3733114c475"  # Your Prefect Cloud Workspace ID
-DEPLOYMENT_ID = "d8c1eaff-e5e2-4e0b-ab03-67f276850392"  # workflow.py deployment
+# Load environment variables from .env file
+load_dotenv()
+
+# Get credentials from environment variables
+PREFECT_API_KEY = os.getenv("PREFECT_API_KEY")
+ACCOUNT_ID = os.getenv("ACCOUNT_ID")
+WORKSPACE_ID = os.getenv("WORKSPACE_ID")
+DEPLOYMENT_ID = os.getenv("DEPLOYMENT_ID")
+
+# Validate that all required environment variables are set
+if not all([PREFECT_API_KEY, ACCOUNT_ID, WORKSPACE_ID, DEPLOYMENT_ID]):
+    raise ValueError("Missing required environment variables. Please check your .env file.")
 
 # Correct API URL to get deployment details
 PREFECT_API_URL = f"https://api.prefect.cloud/api/accounts/{ACCOUNT_ID}/workspaces/{WORKSPACE_ID}/deployments/{DEPLOYMENT_ID}"
