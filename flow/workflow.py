@@ -121,5 +121,5 @@ if __name__ == "__main__":
     ml_workflow.serve(
         name="heart-disease-eda-training",
         tags=["mlops", "eda", "training"],
-        interval=180  # every 10 minutes
+        interval=180  # every 3 minutes
     )
